@@ -130,6 +130,7 @@ def main():
     Its a main function, that creates new game, reads coordinates of turn and makes a move
     :return: Nothing
     """
+
     field = TicTacToe()
     while True:
         print(field.map)
@@ -151,8 +152,14 @@ def main():
 
     print('Do you want to try again? (yes | no)')
 
-    if input() == 'yes':
-        main()
+    while True:
+        _ = input()
+        if _ == 'yes':
+            main()
+        elif _ == 'no':
+            break
+        else:
+            print('Incorrect word, try again')
 
 
 if __name__ == '__main__':
