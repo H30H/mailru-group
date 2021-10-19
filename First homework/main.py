@@ -4,7 +4,7 @@ class TicTacToe:
     """
     def __init__(self):
         self.__p1 = 'X'
-        self.__p2 = 'Y'
+        self.__p2 = '0'
         self.__size = 3
         self.__count = 3  # count to win in 1 line
         self.__whose_last_turn = False  # True = player1, False = player2
@@ -89,9 +89,9 @@ class TicTacToe:
                self.__check_win_delta(x_coord, y_coord, 1, -1)
 
     @property
-    def whose_turn(self) -> bool:
+    def whose_last_turn(self) -> bool:
         """
-        This method return boolean, that shows whose turn
+        This method return boolean, that shows whose turn was last
         :return: True if player1 turn else False
         """
         return self.__whose_last_turn
@@ -133,14 +133,14 @@ def main():
     field = TicTacToe()
     while True:
         print(field.map)
-        print(f'Player{1 if field.whose_turn else 2} turn. '
-              f'Enter x and y coordinates\n :')
+        print(f'Player{2 if field.whose_last_turn else 1} turn. '
+              f'Enter x and y coordinates\n: ', end='')
         try:
             x_coord, y_coord = map(int, input().split())
             k = field.turn(x_coord, y_coord)
 
             if k:
-                print(field.map, f'Player{1 if field.whose_turn else 2} has won!')
+                print(field.map, f'Player{1 if field.whose_last_turn else 2} has won!')
                 break
         except ValueError as err:
             print(err)
