@@ -3,7 +3,7 @@ from main import TicTacToe
 
 
 class MyTestTicTacToe(unittest.TestCase):
-	def test_asserts(self):
+	def test_raises(self):
 		self.field = TicTacToe()
 		self.assertRaises(ValueError, lambda: self.field.turn(3, 3))
 		self.assertRaises(ValueError, lambda: self.field.turn(-1, -1))
